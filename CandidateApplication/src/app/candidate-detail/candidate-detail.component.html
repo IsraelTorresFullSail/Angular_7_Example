@@ -1,0 +1,17 @@
+<div *ngIf="candidate">
+
+  <h2>{{candidate.first_name | uppercase}} Details</h2>
+
+  <div><span>Id: </span>{{candidate.id}}</div>
+  <div><span>First Name: </span>{{candidate.first_name}}</div>
+  <div><span>Last Name: </span>{{candidate.last_name}}</div>
+  <div><span>Email: </span>{{candidate.email}}</div>
+  <div><span>Gender: </span>{{candidate.gender}}</div>
+
+  <div>
+    <label>Name:
+      <input [(ngModel)]="candidate.first_name" placeholder="first_name">
+    </label>
+  </div>
+
+</div>
