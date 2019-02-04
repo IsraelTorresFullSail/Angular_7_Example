@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Candidate } from '../candidate';
-import { CANDIDATES } from '../mock-candidates';
+import { CandidateService } from '../candidate.service';
 
 @Component({
   selector: 'app-candidates',
@@ -9,23 +9,20 @@ import { CANDIDATES } from '../mock-candidates';
 })
 export class CandidatesComponent implements OnInit {
 
-  candidates = CANDIDATES;
+  candidates: Candidate[];
   selectedCandidate: Candidate;
 
-  constructor() { }
+  constructor(private candidateService: CandidateService) { }
 
   ngOnInit() {
+    this.getCandidates();
   }
-
-  /*candidate: Candidate = {
-    id: 1,
-    first_name: 'Andrew',
-    last_name: 'Graham',
-    email: 'Sincere@april.biz',
-    gender: 'Male'
-  };*/
 
   onSelect(candidate: Candidate): void {
     this.selectedCandidate = candidate;
+  }
+
+  getCandidates(): void {
+    this.candidates = this.candidateService.getCandidates();
   }
 }
