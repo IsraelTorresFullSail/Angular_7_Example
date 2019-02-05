@@ -9,8 +9,8 @@ import { CandidateService } from '../candidate.service';
 })
 export class CandidatesComponent implements OnInit {
 
+  //selectedCandidate: Candidate;
   candidates: Candidate[];
-  selectedCandidate: Candidate;
 
   constructor(private candidateService: CandidateService) { }
 
@@ -18,11 +18,13 @@ export class CandidatesComponent implements OnInit {
     this.getCandidates();
   }
 
-  onSelect(candidate: Candidate): void {
+  /* onSelect(candidate: Candidate): void {
     this.selectedCandidate = candidate;
-  }
+  } */
 
   getCandidates(): void {
-    this.candidates = this.candidateService.getCandidates();
+    this.candidateService.getCandidates()
+        .subscribe(candidates => this.candidates = candidates);
+    
   }
 }

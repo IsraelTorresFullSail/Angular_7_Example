@@ -1,13 +1,11 @@
-<h2>Candidates</h2>
+<h2>My Candidates</h2>
 <ul class="candidates">
-  <li *ngFor="let candidate of candidates"
-    [class.selected]="candidate === selectedCandidate"
-    (click)="onSelect(candidate)">
+  <li *ngFor="let candidate of candidates">
+    <a routerLink="/detail/{{candidate.id}}">
     <span class="badge">{{candidate.id}}</span> {{candidate.first_name}}
+    </a>
   </li>
 </ul>
-
-<app-candidate-detail [candidate]="selectedCandidate"></app-candidate-detail>
 
 
 
